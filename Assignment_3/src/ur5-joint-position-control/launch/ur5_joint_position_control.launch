@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find ur5-joint-position-control)/config/ur5_jnt_pos_ctrl.yaml" command="load"/>
+
+  <param name="robot_description" textfile="$(find ur5-joint-position-control)/urdf/ur5_jnt_pos_ctrl.urdf"/>
+  
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" args="shoulder_pan_joint_position_controller shoulder_lift_joint_position_controller elbow_joint_position_controller wrist_1_joint_position_controller wrist_2_joint_position_controller wrist_3_joint_position_controller joint_state_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/ur5/joint_states" />
+  </node>
+
+</launch>

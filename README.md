@@ -1,17 +1,21 @@
 # Robotics project - _A mobile robot to pick up LEGO bricks_.
 This is the _Fundamentals of Robotics'_ project by Pietro Fronza, Stefano Genetti, and Giovanni Valer.
 
-We have written the code mainly in **C++** (for the part regarding kinematics and trajectory planning) and **Python** (for object classification and localization).
+ℹ We have written the code mainly in **C++** (for the part regarding kinematics and trajectory planning) and **Python** (for object classification and localization). For any info about the implementation solutions, read the paper: <a href="https://github.com/jo-valer/Robotics/blob/main/Robotics_Project.pdf">Robotics_Project.pdf</a>.
+
+## 🎥 Videos
+It might be useful to have a look at some simulations we have done. You can find them on YouTube at the following links:
+- <a href="https://youtu.be/23n-PxkJd8o">▶️ **Assignment 1**</a>
+- <a href="https://youtu.be/45ijPx6vJCo">▶️ **Assignment 2**</a>
+- ▶️ **Assignment 3**
+
+## 📁 Repository content 
+Here you can find three different catkin workspaces, each one for a different assignment. All goals have been achieved.
 
 ⚠️ If you want to download the code and run it, make sure you comply with the <a href="#requirements">requirements</a>. Furthermore, you need to give execution permissions to 3 python scripts, namely: `src/my_world/world/lego_spawner.py`, `src/robotic_vision/src/localize_listener.py`, and `src/robotic_vision/src/yolov5/my_detect.py`. If you are not on a native linux machine you may need to directly create those files (then copying in them the content from this repo).
 
-### Repository content
-Here you can find three different catkin workspaces, each one for a different assignment. All tasks have been achieved.
 
-ℹ For any info about the implementation solutions, read the paper: <a href="https://github.com/jo-valer/Robotics/blob/main/Robotics_Project.pdf">Robotics_Project.pdf</a>.
-
-
-## `Assignment_1`
+## <a href="https://github.com/jo-valer/Robotics/tree/main/Assignment_1">`Assignment_1`</a>
 The whole environment has to be launched with:
   ```sh
   roslaunch my_world startcomplete.launch
@@ -29,11 +33,11 @@ You will find the recognized bricks directly printed on the shell, and also in `
   ```
 
 
-## `Assignment_2`
+## <a href="https://github.com/jo-valer/Robotics/tree/main/Assignment_2">`Assignment_2`</a>
 Basically, everything works as in the previous assignment, except for the robot, that now carries the bricks to their basket. The commands and the output are the same.
 
 
-## `Assignment_3`
+## <a href="https://github.com/jo-valer/Robotics/tree/main/Assignment_3">`Assignment_3`</a>
 For the last assignment we decided to have a much more complicated environment, so now the world is stored as a map in a file: <a href="https://github.com/jo-valer/Robotics/tree/main/Assignment_3/src/my_world/src/map.txt">`src/my_world/src/map.txt`</a>.
 
 To run this simulation, everything works a previously seen, but now the output has to be slightly different, since there can be up to 3 different bricks in the same target area:
