@@ -1,5 +1,5 @@
 # Robotics project - _A mobile robot to pick up LEGO bricks_.
-This is the _Foundamentals of Robotics'_ project by Pietro Fronza, Stefano Genetti, and Giovanni Valer.
+This is the _Fundamentals of Robotics'_ project by Pietro Fronza, Stefano Genetti, and Giovanni Valer.
 
 We have written the code mainly in **C++** (for the part regarding kinematics and trajectory planning) and **Python** (for object classification and localization).
 
@@ -59,3 +59,10 @@ So that we can know how the robot explored the environment. In this example, it 
 - **Python 3**
 - **ROS Noetic**
 - **Ubuntu 20.04**
+- After having cloned the repository:
+```sh
+cd src/robotic_vision/src/yolov5/
+```
+```sh
+pip install -qr requirements.txt
+```
