@@ -20,7 +20,7 @@ After having un-paused the simulation, you can run the controller:
   ```sh
   rosrun mir_controller mir_controller
   ```
-You will find the recognized bricks directly printed on the shell, and also in <a href="https://github.com/jo-valer/Robotics/tree/main/Assignment_1/OUTPUT.txt">`OUTPUT.txt`</a>. Here is an example with 4 bricks:
+You will find the recognized bricks directly printed on the shell, and also in `OUTPUT.txt`. Here is an example with 4 bricks:
   ```java
   LEGO   class: 7,   name: X1_Y4_Z1,         x: 0.121254,   y: -2.0017
   LEGO   class: 5,   name: X1_Y3_Z2,         x: -0.120827,  y: -2.00102
