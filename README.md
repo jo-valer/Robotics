@@ -3,12 +3,12 @@ This is the _Foundamentals of Robotics'_ project by Pietro Fronza, Stefano Genet
 
 We have written the code mainly in **C++** (for the part regarding kinematics and trajectory planning) and **Python** (for object classification and localization).
 
-**⚠️** If you want to download the code and run it, make sure you comply with the <a href="#requirements">requirements</a>.
+⚠️ If you want to download the code and run it, make sure you comply with the <a href="#requirements">requirements</a>.
 
 ### Repository content
 Here you can find three different catkin workspaces, each one for a different assignment. All tasks have been achieved.
 
-**ℹ** For any info about the implementation solutions, read the paper: <a href="https://github.com/jo-valer/Robotics/Robotics_Project.pdf">Robotics_Project.pdf</a>.
+ℹ For any info about the implementation solutions, read the paper: <a href="https://github.com/jo-valer/Robotics/Robotics_Project.pdf">Robotics_Project.pdf</a>.
 
 
 ## `Assignment_1`
@@ -55,8 +55,7 @@ To run this simulation, everything works a previously seen, but now the output h
 So that we can know how the robot explored the environment. In this example, it firstly visited area 3, then area 1 and 2, and at the end area 4.
 
 
-<div id="requirements"></div>
-
 ## Requirements
 - **Python 3**
-- 
+- **ROS Noetic**
+- **Ubuntu 20.04**
