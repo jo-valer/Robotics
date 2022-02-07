@@ -3,12 +3,12 @@ This is the _Foundamentals of Robotics'_ project by Pietro Fronza, Stefano Genet
 
 We have written the code mainly in **C++** (for the part regarding kinematics and trajectory planning) and **Python** (for object classification and localization).
 
-⚠️ If you want to download the code and run it, make sure you comply with the <a href="#requirements">requirements</a>.
+⚠️ If you want to download the code and run it, make sure you comply with the <a href="#requirements">requirements</a>. Furthermore, you need to give execution permissions to 3 python scripts, namely: `src/my_world/world/lego_spawner.py`, `src/robotic_vision/src/localize_listener.py`, and `src/robotic_vision/src/yolov5/my_detect.py`. If you are not on a native linux machine you may need to directly create those files (then copying in them the content from this repo).
 
 ### Repository content
 Here you can find three different catkin workspaces, each one for a different assignment. All tasks have been achieved.
 
-ℹ For any info about the implementation solutions, read the paper: <a href="https://github.com/jo-valer/Robotics/Robotics_Project.pdf">Robotics_Project.pdf</a>.
+ℹ For any info about the implementation solutions, read the paper: <a href="https://github.com/jo-valer/Robotics/blob/main/Robotics_Project.pdf">Robotics_Project.pdf</a>.
 
 
 ## `Assignment_1`
@@ -20,7 +20,7 @@ After having un-paused the simulation, you can run the controller:
   ```sh
   rosrun mir_controller mir_controller
   ```
-You will find the recognized bricks directly printed on the shell, and also in <a href="https://github.com/jo-valer/Robotics/Assignment_1/OUTPUT.txt">`OUTPUT.txt`</a>. Here is an example with 4 bricks:
+You will find the recognized bricks directly printed on the shell, and also in <a href="https://github.com/jo-valer/Robotics/tree/main/Assignment_1/OUTPUT.txt">`OUTPUT.txt`</a>. Here is an example with 4 bricks:
   ```java
   LEGO   class: 7,   name: X1_Y4_Z1,         x: 0.121254,   y: -2.0017
   LEGO   class: 5,   name: X1_Y3_Z2,         x: -0.120827,  y: -2.00102
@@ -34,7 +34,7 @@ Basically, everything works as in the previous assignment, except for the robot,
 
 
 ## `Assignment_3`
-For the last assignment we decided to have a much more complicated environment, so now the world is stored as a map in a file: <a href="https://github.com/jo-valer/Robotics/Assignment_3/src/my_world/src/map.txt">`src/my_world/src/map.txt`</a>.
+For the last assignment we decided to have a much more complicated environment, so now the world is stored as a map in a file: <a href="https://github.com/jo-valer/Robotics/tree/main/Assignment_3/src/my_world/src/map.txt">`src/my_world/src/map.txt`</a>.
 
 To run this simulation, everything works a previously seen, but now the output has to be slightly different, since there can be up to 3 different bricks in the same target area:
   ```java
