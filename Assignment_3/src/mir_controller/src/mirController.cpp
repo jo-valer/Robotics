@@ -467,68 +467,29 @@ int main(int argc, char **argv){
 
               //LEGO LYING
               if(pose==1){
+                //Get comparable lego properties [X, surface] computed by the localization process and pointcloud
                 tie(lego_dim_x, lego_surface) = get_lego_property4lying_x_and_surface(pixel_x, pixel_y, matrixPointcloud);
 
                 //===OBJECT CLASSIFICATION===
-                //Class 9 - 10: X2_Y2_Z2 - X2_Y2_Z2_FILLET
-                if(lego_dim_x==2){
-                  if(lego_surface>4205)       {decided_class=9;}
-                  else                        {decided_class=10;}
-                }
-                //Class 3: X1_Y2_Z2_CHAMFER
-                else if(lego_surface<3467)    {decided_class=3;}
-                //Class 4: X1_Y2_Z2_TWINFILLET
-                else if(lego_surface<3976)    {decided_class=4;}
-                //Class 2: X1_Y2_Z2
-                else if(lego_surface<4632)    {decided_class=2;}
-                //Class 6: X1_Y3_Z2_FILLET
-                else if(lego_surface<5765)    {decided_class=6;}
-                //Class 5: X1_Y3_Z2
-                else if(lego_surface<7736)    {decided_class=5;}
-                //Class 8: X1_Y4_Z2
-                else                          {decided_class=8;}
+                decided_class=compute_class4lying(lego_dim_x, lego_surface);               
               }
 
               //LEGO STANDING
               if(pose==0){
-                //Get a comparable lego properties [X dim, Y dim] computed by the localization process
+                //Get comparable lego properties [X dim, Y dim] computed by the localization process
                 actual_y_dim = get_lego_property_y_localized(width, height);
                 actual_x_dim = get_lego_property_x_localized(width, height);
 
                 //Get lego height and number of caps looking at point cloud data
                 tie(lego_height, lego_caps) = get_lego_property_z_and_caps(pixel_x, pixel_y, matrixPointcloud);
                 
+                //Get the lego's number of ramps (it has a concrete meaning just for bricks 3 and 4)
+                int lego_ramps = get_lego_property_ramp(pixel_x, pixel_y, matrixPointcloud);
+                
                 //===OBJECT CLASSIFICATION===
-
-                //Having localization data in some cases YOLO computation is not needed
-                //Class 0: X1_Y1_Z2
-                if(actual_y_dim==1)                         {decided_class=0;}
-                //Class 9: X2_Y2_Z2
-                else if(actual_x_dim==2 && lego_caps>2)     {decided_class=9;}
-                //Class 10: X2_Y2_Z2_FILLET
-                else if(actual_x_dim==2)                    {decided_class=10;}
-
-                //Class 1: X1_Y2_Z1
-                else if(actual_y_dim==2 && lego_height==1)  {decided_class=1;}
-                //Class 2: X1_Y2_Z2
-                else if(actual_y_dim==2 && lego_caps>1)     {decided_class=2;}
-                //Class 3 - 4: X1_Y2_Z2_CHAMFER - X1_Y2_Z2_TWINFILLET
-                else if(actual_y_dim==2){
-                  int lego_ramps = get_lego_property_ramp(pixel_x, pixel_y, matrixPointcloud);
-                  if(lego_ramps==1)                         {decided_class=3;}
-                  else                                      {decided_class=4;}
-                }
-
-                //Class 5: X1_Y3_Z2
-                else if(actual_y_dim==3 && lego_caps>1)     {decided_class=5;}
-                //Class 6: X1_Y3_Z2_FILLET
-                else if(actual_y_dim==3)                    {decided_class=6;}
-                //Class 7: X1_Y4_Z1
-                else if(actual_y_dim==4 && lego_height==1)  {decided_class=7;}
-                //Class 8: X1_Y4_Z2
-                else if(actual_y_dim==4)                    {decided_class=8;}
-
-                else{  //YOLO is needed
+                decided_class=compute_class4standing(actual_x_dim, actual_y_dim, lego_height, lego_caps, lego_ramps);
+                if(decided_class==11){
+                  //YOLO is needed
                   //decided_class = yolo_scan(loop_rate, pose2d, localization_data, detection_data, mirPublisher);
                   cout<<"Yolo_scan"<<endl;
                 }

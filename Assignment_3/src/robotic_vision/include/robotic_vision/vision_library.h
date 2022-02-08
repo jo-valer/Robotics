@@ -108,6 +108,25 @@ void filter_dim_y(std::vector<int>& yolo_output, int correct_y);
 std::tuple<int, int, int> get_lego_properties(int lego_int);
 
 /**
+ * @brief
+ * Returns the lego class. It has to be called for bricks standing
+ * @param actual_x_dim dimension X of the brick
+ * @param actual_y_dim dimension Y of the brick
+ * @param lego_height height of the brick
+ * @param lego_caps feature "number of caps" of the brick
+ * @param lego_ramps feature "number of ramps" of the brick
+ */
+int compute_class4standing(int actual_x_dim, int actual_y_dim, int lego_height, int lego_caps, int lego_ramps);
+
+/**
+ * @brief
+ * Returns the lego class. It has to be called for bricks lying
+ * @param lego_dim_x dimension X of the brick
+ * @param lego_surface of the brick at specified height
+ */
+int compute_class4lying(int lego_dim_x, int lego_surface);
+
+/**
  * @brief 
  * To achive better results, the procedure of object recognition and classification is done from several point of view
  * Return the class recognized by YOLO

@@ -20,11 +20,9 @@ X_SHIFT = -0.4525
 # Y_SHIFT depends on where we put the upper camera (+0.9 in respect of robot centre, +0.9-0.3 in respect of camera)
 Y_SHIFT = 0.95-0.3-0.4525
 
+# Get directories paths
 PKG = 'mir_controller'
 roslib.load_manifest(PKG)
-
-# Questo script deve prendere un'immagine dal topic /camera_up/color/image_raw e salvarla
-# in localization.jpeg, affinché localize.py riconosca la posizione degli oggetti presenti
 MIR_PATH = roslib.packages.get_pkg_dir(PKG)
 MAIN_PATH = MIR_PATH+'/src/'
 
@@ -33,13 +31,11 @@ bridge = CvBridge()
 def image_callback(msg):
     print("Received an image!")
     try:
-        # Convert your ROS Image message to OpenCV2
+        # Convert ROS Image message to OpenCV2
         cv2_img = bridge.imgmsg_to_cv2(msg, "bgr8")
     except CvBridgeError as e:
         print(e)
     else:
-        # Save your OpenCV2 image as a jpeg 
-        #cv2.imwrite(MAIN_PATH+'localization.jpeg', cv2_img)
         # converting image into grayscale image
         gray = cv2.cvtColor(cv2_img, cv2.COLOR_BGR2GRAY)
 
@@ -143,11 +139,6 @@ def image_callback(msg):
                     msg.lego3_w = w
                     msg.lego3_h = h
                     msg.lego3_p = p
-
-                #with open(MAIN_PATH + 'localization.txt', 'w') as ff:
-                    # Notice that y has to be inverted (i.e. 1024-y) because the y-axis in gazebo is in opposite direction if compared to the image y-axis
-                    #ff.write(str(int(x)) + " " + str(int(y)) + " " + str( (x*STRETCH) + X_SHIFT ) + " " + str( ((1024-y)*STRETCH) + Y_SHIFT ) + " " + str(q) + " " + str(w) + " " + str(h) + "\n")
-                    #ff.close()
 
             #LEGO LYING
             if len(approx)>4:

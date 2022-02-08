@@ -269,6 +269,58 @@ std::tuple<int, int, int> get_lego_properties(int lego_int){
     return std::make_tuple(x_dim, y_dim, z_dim);
 }
 
+int compute_class4standing(int actual_x_dim, int actual_y_dim, int lego_height, int lego_caps, int lego_ramps){
+    //Class 0: X1_Y1_Z2
+    if(actual_y_dim==1)                         {return 0;}
+    //Class 9: X2_Y2_Z2
+    else if(actual_x_dim==2 && lego_caps>2)     {return 9;}
+    //Class 10: X2_Y2_Z2_FILLET
+    else if(actual_x_dim==2)                    {return 10;}
+    //Class 1: X1_Y2_Z1
+    else if(actual_y_dim==2 && lego_height==1)  {return 1;}
+    //Class 2: X1_Y2_Z2
+    else if(actual_y_dim==2 && lego_caps>1)     {return 2;}
+    //Class 3 - 4: X1_Y2_Z2_CHAMFER - X1_Y2_Z2_TWINFILLET
+    else if(actual_y_dim==2){
+        if(lego_ramps==1)                       {return 3;}
+        else                                    {return 4;}
+    }
+
+    //Class 5: X1_Y3_Z2
+    else if(actual_y_dim==3 && lego_caps>1)     {return 5;}
+    //Class 6: X1_Y3_Z2_FILLET
+    else if(actual_y_dim==3)                    {return 6;}
+    //Class 7: X1_Y4_Z1
+    else if(actual_y_dim==4 && lego_height==1)  {return 7;}
+    //Class 8: X1_Y4_Z2
+    else if(actual_y_dim==4)                    {return 8;}
+
+    else{
+        //YOLO is needed
+        return 11;
+    }
+}
+
+int compute_class4lying(int lego_dim_x, int lego_surface){
+    //Class 9 - 10: X2_Y2_Z2 - X2_Y2_Z2_FILLET
+    if(lego_dim_x==2){
+        if(lego_surface>4205)     {return 9;}
+        else                      {return 10;}
+    }
+    //Class 3: X1_Y2_Z2_CHAMFER
+    else if(lego_surface<3467)    {return 3;}
+    //Class 4: X1_Y2_Z2_TWINFILLET
+    else if(lego_surface<3976)    {return 4;}
+    //Class 2: X1_Y2_Z2
+    else if(lego_surface<4632)    {return 2;}
+    //Class 6: X1_Y3_Z2_FILLET
+    else if(lego_surface<5765)    {return 6;}
+    //Class 5: X1_Y3_Z2
+    else if(lego_surface<7736)    {return 5;}
+    //Class 8: X1_Y4_Z2
+    else                          {return 8;}
+}
+
 int yolo_scan(ros::Rate& loop_rate, Callback_odometry& pose2d, Callback_localization& localization_data, Callback_detect& detection_data, ros::Publisher& mirPublisher){
   //Assumption: when this procedure is needed robot's rotation is always pi/2
   
