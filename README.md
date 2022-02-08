@@ -7,7 +7,7 @@ This is the _Fundamentals of Robotics'_ project by Pietro Fronza, Stefano Genett
 It might be useful to have a look at some simulations we have done. You can find them on YouTube at the following links:
 - <a href="https://youtu.be/23n-PxkJd8o">▶️ **Assignment 1**</a>
 - <a href="https://youtu.be/45ijPx6vJCo">▶️ **Assignment 2**</a>
-- ▶️ **Assignment 3**
+- <a href="https://youtu.be/dLTMpczgzr8">▶️ **Assignment 3**</a>
 
 ## 📁 Repository content 
 Here you can find three different catkin workspaces, each one for a different assignment. All goals have been achieved.
