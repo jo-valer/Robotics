@@ -1,9 +1,0 @@
-{
-    "ros.distro": "noetic",
-    "files.associations": {
-        "dense": "cpp",
-        "cmath": "cpp",
-        "complex": "cpp",
-        "iostream": "cpp"
-    }
-}
