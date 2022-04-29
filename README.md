@@ -12,7 +12,7 @@ It might be useful to have a look at some simulations we have done. You can find
 ## 📁 Repository content 
 Here you can find three different catkin workspaces, each one for a different assignment. All goals have been achieved.
 
-⚠️ If you want to download the code and run it, make sure you comply with the <a href="#requirements">requirements</a>. Furthermore, you need to give execution permissions to 3 python scripts, namely: `src/my_world/world/lego_spawner.py`, `src/robotic_vision/src/localize_listener.py`, and `src/robotic_vision/src/yolov5/my_detect.py`. If you are not on a native linux machine you may need to directly create those files (then copying in them the content from this repo).
+⚠️ If you want to download the code and run it, make sure you comply with the <a href="#requirements">requirements</a>. Furthermore, you need to give execution permissions to 3 python scripts, namely: `src/my_world/world/lego_spawner.py`, `src/robotic_vision/src/localize_listener.py`, and `src/robotic_vision/src/yolov5/my_detect.py`. If you are not on a native linux machine you may need to directly create those files (then copying into them the content from this repo).
 
 
 ## <a href="https://github.com/jo-valer/Robotics/tree/main/Assignment_1">`Assignment_1`</a>
@@ -40,7 +40,7 @@ Basically, everything works as in the previous assignment, except for the robot,
 ## <a href="https://github.com/jo-valer/Robotics/tree/main/Assignment_3">`Assignment_3`</a>
 For the last assignment we decided to have a much more complicated environment, so now the world is stored as a map in a file: <a href="https://github.com/jo-valer/Robotics/tree/main/Assignment_3/src/my_world/src/map.txt">`src/my_world/src/map.txt`</a>.
 
-To run this simulation, everything works a previously seen, but now the output has to be slightly different, since there can be up to 3 different bricks in the same target area:
+To run this simulation, everything works as previously seen, but now the output has to be slightly different, since there can be up to 3 different bricks in the same target area:
   ```java
   AREA: 3 - LEGO  class: 7,   name: X1_Y4_Z1,         x: 0.121254,   y: -2.0017
   AREA: 3 - LEGO  class: 5,   name: X1_Y3_Z2,         x: -0.120827,  y: -2.00102
