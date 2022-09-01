@@ -1,5 +1,5 @@
 # Robotics project - _A mobile robot to pick up LEGO bricks_.
-This is the _Fundamentals of Robotics'_ project by Pietro Fronza, Stefano Genetti, and Giovanni Valer.
+This is the _Fundamentals of Robotics'_ project by Pietro Fronza, Stefano Genetti, and [**Giovanni Valer**](https://github.com/jo-valer).
 
 ℹ We have written the code mainly in **C++** (for the part regarding kinematics and trajectory planning) and **Python** (for object classification and localization). For any info about the implementation solutions, read the paper: <a href="https://github.com/jo-valer/Robotics/blob/main/Robotics_Project.pdf">Robotics_Project.pdf</a>.
 
